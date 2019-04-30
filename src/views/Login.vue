@@ -2,6 +2,20 @@
   <v-container fill-height style="max-width:450px;">
       <v-layout align-center row wrap >
         <v-flex xs12>
+            <v-alert
+            class="mb-3"
+            :value="isLoginError"
+            type="error"
+            >
+            아이디와 비밀번호를 확인해주세요.
+            </v-alert>
+            <v-alert
+            class="mb-3"
+            :value="isLogin"
+            type="success"
+            >
+            로그인이 완료되었습니다.
+            </v-alert>
             <v-card >
                 <v-toolbar flat>
                     <v-toolbar-title>로그인</v-toolbar-title>
@@ -23,7 +37,7 @@
                         depressed
                         block
                         large
-                        @click="login()"
+                        @click="login({email,password})"
                     >
                         로그인
                     </v-btn>
@@ -35,22 +49,19 @@
 </template>
 
 <script>
+import { mapState, mapActions} from "vuex"
   export default {
     data(){
         return {
             email:null,
-            password:null,
-            allusers:[
-                {id:1,name:'chody0116',email:'chody0116@gmail.com',password:"12345"},
-                {id:2,name:'hoza',email:'hoza@gmail.com',password:"123456"}
-            ]
+            password:null
         }
     },
+    computed:{
+        ...mapState(["isLogin","isLoginError"])
+    },
     methods:{
-        login(){
-            
-            console.log(this.email,this.password)
-        }
+        ...mapActions(["login"])
     }
   }
 </script>
