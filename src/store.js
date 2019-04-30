@@ -10,11 +10,11 @@ export default new Vuex.Store({
     allUsers: [
       {
         id: 1,
-        name: "chody0116",
-        email: "chody0116@gmail.com",
+        name: "test1",
+        email: "test1@gmail.com",
         password: "12345"
       },
-      { id: 2, name: "hoza", email: "hoza@gmail.com", password: "123456" }
+      { id: 2, name: "test2", email: "test2@gmail.com", password: "123456" }
     ],
     isLogin: false,
     isLoginError: false
