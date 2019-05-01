@@ -44,15 +44,14 @@ export default new Vuex.Store({
           // console.log(res)
           dispatch("getMemberInfo")
           console.log(localStorage.getItem("access_token"))
-          localStorage.getItem("access_token")
-            ? router.push({ name: "mypage" })
-            : commit("loginError")
         })
         .catch(() => {
           commit("loginError")
         })
         .then(() => {
           //console.log("test")
+          if (localStorage.getItem("access_token"))
+            router.push({ name: "mypage" })
         })
     },
     logout({ commit }) {
@@ -62,6 +61,7 @@ export default new Vuex.Store({
     getMemberInfo({ commit }) {
       //로컬 스토리지에 저장되어 있는 토큰 불러오기
       let token = localStorage.getItem("access_token")
+      // console.log(token)
       if (token) {
         let config = {
           headers: {
