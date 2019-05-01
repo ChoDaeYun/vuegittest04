@@ -39,7 +39,7 @@
                         large
                         @click="login({email,password})"
                     >
-                        로그인
+                        로그인 
                     </v-btn>
                 </div>          
             </v-card>
@@ -50,6 +50,7 @@
 
 <script>
 import { mapState, mapActions} from "vuex"
+
   export default {
     data(){
         return {
