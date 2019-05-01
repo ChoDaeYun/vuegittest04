@@ -43,7 +43,6 @@ export default new Vuex.Store({
           localStorage.setItem("access_token", token)
           // console.log(res)
           dispatch("getMemberInfo")
-          console.log(localStorage.getItem("access_token"))
         })
         .catch(() => {
           commit("loginError")
